@@ -1,10 +1,10 @@
 import httpService from "./http.service";
 
-const todosEndepoint = "todos/";
-const todosEndepoint2 = "/posts";
+const todosEndepointTodos = "todos/";
+const todosEndepointPosts = "posts/";
 const todosService = {
     fetch: async () => {
-        const {data} = await httpService.get(todosEndepoint, {
+        const {data} = await httpService.get(todosEndepointTodos, {
             params: {
                 _page: 1,
                 _limit: 10,
@@ -12,23 +12,14 @@ const todosService = {
         });
         return data;
     },
-    fetch2: async () => {
-        const {data} = await httpService.get(todosEndepoint, {
+    set: async ({title, completed}) => {
+        const {data} = await httpService.post(todosEndepointPosts, {
             params: {
-                _page: 1,
-                _limit: 10,
+                title: title,
+                completed: completed,
             },
         });
         return data;
     },
-    // fetch2: async () => {
-    //     const {data} = await httpService.post(todosEndepoint2, {
-    //         params: {
-    //             title: "hello my title",
-    //             completed: true,
-    //         },
-    //     });
-    //     return data;
-    // },
 };
 export default todosService;

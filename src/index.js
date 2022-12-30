@@ -38,10 +38,19 @@ const App = (params) => {
         return <p>{error}</p>;
     }
 
+    const handleCreateTask = () => {
+        const newTask = {
+            title: 'do homework',
+            completed: true
+        }
+        dispatch(createTask(newTask))
+    }
+
+
     return (
         <>
             <h1> App</h1>
-            <button onClick={createTask}>Button</button>
+            <button onClick={() => handleCreateTask()}>createTask</button>
             <ul>
                 {state.map((el) => (
                     <li key={el.id}>
