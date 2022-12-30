@@ -60,6 +60,10 @@ export function taskDeleted(id) {
     return remove({id});
 }
 
+export const createTask = () => {
+console.log('createTask')
+}
+
 export const getTasks = () => (state) => state.tasks.entities;
 export const getTasksLoadingStatus = () => (state) => state.tasks.isLoading;
 
